@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'adana',
     'category',
     'account',
+    'cart',
 
 ]
 AUTH_USER_MODEL = 'account.Account'
