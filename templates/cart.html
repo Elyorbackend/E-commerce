@@ -7,7 +7,13 @@
     <div class="container">
 
         <!-- ============================ COMPONENT 1 ================================= -->
+        {% if not cart_items %}
+        <div class="alert alert-primary text-center" role="alert">
+            Your cart is empty
 
+        </div>
+        <a href="{% url 'store' %}" type="button" class="btn btn-primary">Go to store</a>
+        {% else %}
         <div class="row">
             <aside class="col-lg-9">
                 <div class="card">
@@ -28,7 +34,8 @@
                                     <div class="aside"><img src="{{cart_item.product.image.url}}" class="img-sm">
                                     </div>
                                     <figcaption class="info">
-                                        <a href="#" class="title text-dark">{{cart_item.product.name}}</a>
+                                        <a href="{{cart_item.product.get_url}}"
+                                           class="title text-dark">{{cart_item.product.name}}</a>
                                         <p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p>
                                     </figcaption>
                                 </figure>
@@ -78,11 +85,11 @@
                         </dl>
                         <dl class="dlist-align">
                             <dt>Tax:</dt>
-                            <dd class="text-right"> $10.00</dd>
+                            <dd class="text-right">${{tax}}</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Total:</dt>
-                            <dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+                            <dd class="text-right text-dark b"><strong>${{gen_total}}</strong></dd>
                         </dl>
                         <hr>
                         <p class="text-center mb-3">
@@ -97,6 +104,7 @@
 
 
         </div> <!-- row.// -->
+        {% endif %}
         <!-- ============================ COMPONENT 1 END .// ================================= -->
 
     </div> <!-- container .//  -->

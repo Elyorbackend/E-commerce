@@ -10,9 +10,9 @@ class Category(models.Model):
     image = models.ImageField(upload_to="photoes\categories", blank=True)
 
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
 
-def get_url(self):
-    return reverse('products_by_category', args=[self.slug])
+    def get_url(self):
+        return reverse('product_by_category', args=[self.slug])
