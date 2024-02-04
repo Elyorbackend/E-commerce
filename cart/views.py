@@ -16,7 +16,7 @@ def cart(request):
         tax = (total * 2) / 100
         gen_total = total - tax
     except ObjectDoesNotExist:
-        pass
+        return render(request, 'cart.html')
 
     context = {
         'total': total,

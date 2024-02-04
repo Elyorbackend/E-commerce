@@ -3,9 +3,6 @@ from store.models import Product
 from django.views import View
 
 
-# def home(request):
-#     return render(request, 'home.html')
-
 
 class Home(View):
     def get(self, request):
@@ -14,3 +11,6 @@ class Home(View):
             'products': products
         }
         return render(request, 'home.html', context)
+
+
+
